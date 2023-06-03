@@ -33,7 +33,7 @@ const Header = () => {
             <div className="font-bold">
                 cart -
             </div>
-            {suggestionVisible && <div className=" w-1/2 ml-8 absolute top-12 bg-white left-1/2 transform -translate-x-1/2 ">
+            {suggestionVisible && <div className="z-10 w-1/2 ml-8 absolute top-12 bg-white left-1/2 transform -translate-x-1/2 ">
                 {suggestions && suggestions.slice(0, 7).map(suggestion => {
                     return (
                         <div key={suggestion} className="p-2 ">{suggestion}</div>

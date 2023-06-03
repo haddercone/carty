@@ -1,13 +1,11 @@
-import Catagories from "./components/Catagories";
-import Products from "./components/Products";
+import Body from "./components/Body";
 import Header from "./components/Header";
 function App() {
 
   return (
     <>
       <Header /> 
-      <Catagories />
-      <Products />
+      <Body />
     </>
   )
 }

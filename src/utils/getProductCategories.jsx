@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
-import { CATAGORY_LIST_URL } from "../config";
+import { CATEGORY_LIST_URL } from "../config";
 
-function getProductCatagories(){
+function getProductCategories(){
   const [productCategories, setProductCategories] = useState([])
   const [_, setIsLoaded] = useState(false);
 
-  async function getCatagories(){
-    const data = await fetch(CATAGORY_LIST_URL);
+  async function getCategories(){
+    const data = await fetch(CATEGORY_LIST_URL);
     const json = await data.json();
     setProductCategories(json)
     setIsLoaded(true); 
   }
 
   useEffect(() => {
-    getCatagories()
+    getCategories()
   }, [])
 
   return productCategories;
 }
-export default getProductCatagories;
+export default getProductCategories;

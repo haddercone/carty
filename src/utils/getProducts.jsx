@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { PRODUCTS_URL } from "../config";
 
 function getProducts(){
-    const [products, setProducts] = useState({});
+    const [products, setProducts] = useState([]);
     const [_, setIsLoaded] = useState(false);
     const [productTitles, setProductTitles] = useState([]);
     async function fetchProducts(){
@@ -21,7 +21,8 @@ function getProducts(){
             // console.log(titles);
             setProductTitles(titles);
 
-            setProducts(json);
+            setProducts(json?.products);
+            // console.log(json?.products);
             setIsLoaded(true);
 
         } catch(err){
@@ -41,6 +42,6 @@ function getProducts(){
         fetchProducts();
     }, []);
 
-    return {productTitles, products};
+    return {productTitles, products, setProducts};
 }
 export default getProducts;
