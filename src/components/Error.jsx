@@ -10,7 +10,7 @@ export default function Error() {
         <p className='font-light text-7xl'>{errorResponse.statusText}</p>
         <p className='font-light mt-12'>{errorResponse.data}</p>
         <Link to ="/">
-            <button className='mt-8  border-2 rounded-sm p-3'>Go home</button>
+            <button type="button" className='mt-8  border-2 rounded-sm p-3'>Go home</button>
         </Link>
 
 
