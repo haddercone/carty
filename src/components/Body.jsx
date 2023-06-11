@@ -1,18 +1,36 @@
-import getProducts from "../utils/getProducts";
-import Products from "./Products";
-import { PRODUCTS_URL } from "../config";
+// import Products from "./Products";
+import useFetch from "../hooks/useFetch";
+import { CATEGORY_LIST_URL } from "../config";
+import { Link } from "react-router-dom";
 
 const Body = () => {
-  const { isLoaded, products, setProducts } = getProducts(PRODUCTS_URL);
+  const { data, loading, error } = useFetch(CATEGORY_LIST_URL);
+
+  if (error) {
+    console.log(error);
+  }
+
   return (
     <>
-      {!isLoaded ? (
+      {loading ? (
         "Loading..."
       ) : (
-        <Products products={products} setProducts={setProducts} />
+        <section className="">
+          {data &&
+            data.map((category, index) => {
+              return (
+                <Link
+                  to={"/category/" + category}
+                  key={index}
+                  className="text-gray-600 block"
+                >
+                  {category}{" "}
+                </Link>
+              );
+            })}
+        </section>
       )}
     </>
   );
 };
-
 export default Body;
